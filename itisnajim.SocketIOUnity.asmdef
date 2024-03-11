@@ -11,7 +11,12 @@
         "Newtonsoft.Json.dll",
         "System.Runtime.CompilerServices.Unsafe.dll",
         "System.Text.Json.dll",
-        "System.Text.Encodings.Web.dll"
+        "System.Text.Encodings.Web.dll",
+        "SocketIOClient.dll",
+        "SocketIO.Serializer.SystemTextJson.dll",
+        "SocketIO.Serializer.NewtonsoftJson.dll",
+        "SocketIO.Core.dll",
+        "SocketIO.Serializer.Core.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],
