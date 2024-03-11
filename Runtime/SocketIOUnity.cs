@@ -10,9 +10,11 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using SocketIOClient;
-using SocketIOClient.Messages;
+using SocketIOClient.Transport;
+using SocketIOClient.Transport.WebSockets;
+using SocketIO.Core;
 
-public class SocketIOUnity : SocketIO
+public class SocketIOUnity : SocketIOClient.SocketIO
 {
     public enum UnityThreadScope
     {
@@ -87,25 +89,25 @@ public class SocketIOUnity : SocketIO
     }
 
 
-    public async Task EmitStringAsJSONAsync(string eventName, string json)
-    {
+    // public async Task EmitStringAsJSONAsync(string eventName, string json)
+    // {
 
-        var msg = new EventMessage
-        {
-            Namespace = Namespace,
-            Event = eventName,
-        };
-        if (!string.IsNullOrEmpty(json))
-        {
-            msg.Json = "["+json+"]";
-        }
-        await Transport.SendAsync(msg, CancellationToken.None).ConfigureAwait(false);
-    }
+    //     var msg = new EventMessage
+    //     {
+    //         Namespace = Namespace,
+    //         Event = eventName,
+    //     };
+    //     if (!string.IsNullOrEmpty(json))
+    //     {
+    //         msg.Json = "["+json+"]";
+    //     }
+    //     await _transport.SendAsync(msg, CancellationToken.None).ConfigureAwait(false);
+    // }
 
-    public void EmitStringAsJSON(string eventName, string json)
-    {
-        EmitStringAsJSONAsync(eventName, json).ContinueWith(t => { });
-    }
+    // public void EmitStringAsJSON(string eventName, string json)
+    // {
+    //     EmitStringAsJSONAsync(eventName, json).ContinueWith(t => { });
+    // }
 
     public void Connect()
     {
